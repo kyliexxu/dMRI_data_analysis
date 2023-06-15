@@ -1,4 +1,5 @@
 # dMRI_data_analysis
+## Week 2
 This week, we visited the [Saint Justine Hospital](https://www.chusj.org/) and met our mentor in person.
 This week, our principal task was to code via Python to:
 
