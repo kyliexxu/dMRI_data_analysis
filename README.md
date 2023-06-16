@@ -18,9 +18,8 @@ Here are some highlights of our code!
 We explored histone, bar and scatter plots. Through our codes, we learned the concepts of libraries, variables and functions in python. We also learn a few new tricks to make our graphs more informative and professional. For example, the addition of a best-fit line, the addition of a legend and the addition of error bars really helped us improve our graphs and improve our knowledge of the language.
 
 ## MRI safety
-This week, we learned about the importance of metal-free objects in an MRI room
+This week, we learned about the importance of metal-free objects in an MRI room. lknllnakshjdfbs
+
 	
 
 > Written with [StackEdit](https://stackedit.io/).
-
-
