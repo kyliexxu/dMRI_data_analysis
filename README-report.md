@@ -14,7 +14,7 @@ Neuroscience Internship
 
 We used 489 babies data in order to create out graphs. Those babies are either pretermed or normally born.
 
-![Alt text]"https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/50b4bac9-b95b-4ee7-8a71-766d2dcc73be"
+<img width="530" alt="Screen Shot 2023-06-17 at 4 29 52 PM" src="https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/71a5eba9-a89e-4650-934f-9fbd98535329">
 
 (Discribe the data you used; insert the figure distribution figure here)
 
