@@ -41,6 +41,7 @@ The discrepencies between those two graphs were not what we expected. The first 
 (list the tool and library you used)
 * Matplotlib.pyplot
 * Numpy
+* KMeans
 * Overleaf
 * Markdown
 * GitHub
