@@ -1,6 +1,4 @@
-# (put tittle here)
-Neuroscience Internship
-
+# Babies MRI data report
 
 ## Summary
 (leave it empty)
@@ -27,12 +25,6 @@ The second graph correlates the birth age with the birth weight of all 489 babie
 (explain how you did that: how many data samples? what you should do to use the k-means code? )
 
 K-mean is an unsupervised machine that classifies the data in clusters. Its automaticity and simplycity makes it a good choice for us to classify our data. For our 489 babies, we decided to regroup them in 3 different clusters. Before using the k-mean code, first, we had to clean our data in order to drop the NA values. Then, we had to create coordinates in the type (x, y) with the datas we are interested in. For this example, we were interested in the scan head circumference and the scan age of the babies. Afterwards, we needed to create an array of the data and finally, we needed to choose the number of clusters we wanted to use.
-The code for k-mean looks like this:
-    from sklearn.cluster import KMeans
-    E = df1[['scan_head_circumference', 'scan_age']].values
-    X = np.array(E)
-    kmeans = KMeans(n_clusters=3, random_state=0, n_init="auto").fit(X)
-    kmeans.labels_
 
 ### Results 
 (show two figures of classification results; Are these results you expected? Why? Try to explain...)
