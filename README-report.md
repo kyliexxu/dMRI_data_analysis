@@ -16,7 +16,7 @@ In total, two important graphs were created, using python in Google Colab.
 
 For the first graph, we selected the babies scanned between 40 weeks inclusively and 41 weeks. This represents 90 babies selected. The important data extracted to complete figure 1 are the babies' weight, the babies' scan head circumference and the babies' age. Those babies are either pretermed or normally born. With the graphs, we added error bars in order to show the incertitude of our data.
 
-<img width="530" alt="Screen Shot 2023-06-17 at 4 29 52 PM" src="https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/092b5dd5-c74a-4cb6-bfc4-bf65d4ee59f7">
+![Full graph](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/423e3438-9fe1-4725-8b34-b56e875914f7)
 
 The second graph correlates the birth age with the birth weight of all 489 babies. Clearly, we can see a colleration between the two variables. Hence, a regression line can be plotted in order to better vizualize the realtionship between the x and y variables.
 
