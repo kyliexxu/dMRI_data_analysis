@@ -16,11 +16,11 @@ In total, two important graphs were created, using python in Google Colab.
 
 For the first graph, we selected the babies scanned between 40 weeks inclusively and 41 weeks. This represents 90 babies selected. The important data extracted to complete figure 1 are the babies' weight, the babies' scan head circumference and the babies' age. Those babies are either pretermed or normally born. With the graphs, we added error bars in order to show the incertitude of our data.
 
-![Full graph](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/423e3438-9fe1-4725-8b34-b56e875914f7)
+![Full graph](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/985051a0-d3f0-4bc1-b907-69c31fd55295)
 
 The second graph correlates the birth age with the birth weight of all 489 babies. Clearly, we can see a colleration between the two variables. Hence, a regression line can be plotted in order to better vizualize the realtionship between the x and y variables.
 
-<img width="534" alt="Screen Shot 2023-06-18 at 9 31 23 AM" src="https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/60fd48d0-71f4-4816-87c2-1b4d5d636aac">
+![birth weight scatter](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/bf2739d4-372e-4ef9-9934-54bbab5404ce)
 
 
 ### Experiment 1: use k-means to classify the data
@@ -37,9 +37,9 @@ The code for k-mean looks like this:
 ### Results 
 (show two figures of classification results; Are these results you expected? Why? Try to explain...)
 
-<img width="555" alt="Screen Shot 2023-06-18 at 9 47 36 AM" src="https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/e1f35031-e100-46dc-b776-4adf48f09eb6">
+![scan head circumference data](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/0541f7a1-22c3-466d-ba5a-53752391876c)
 
-<img width="512" alt="Screen Shot 2023-06-18 at 9 48 23 AM" src="https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/a07e383b-d453-40b4-a6b6-946b8d09be5c">
+![First Model Training](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/1098fb95-3ad1-4b7a-b655-ff6d6b69a47a)
 
 The discrepencies between those two graphs were not what we expected. The first graph was manually done based on the predefined categorizes. For the second graph, our k-means machine calculates the distances between all points on the graph and categorizes them based on their closeness. So, difference between the two figures is logical.
 
