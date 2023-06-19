@@ -1,28 +1,48 @@
-# dMRI_data_analysis
-## Week 2
-This week, we visited the [Saint Justine Hospital](https://www.chusj.org/) and met our mentor in person.
-This week, our principal task was to code via Python to:
+# Babies MRI data report
 
- - Process the data
- - Clean the data
- - Classify the data
+## Summary
+(leave it empty)
 
-Here are some highlights of our code!
+## Background
+(leave it empty)
 
-	plt.title('Birth Weight of Babies')
+## Method
 
-	plt.xlabel('Birth age (weeks)')
-	
-	plt.ylabel('Birth weight(kg)')
+### Data 
 
-We explored histone, bar and scatter plots. Through our codes, we learned the concepts of libraries, variables and functions in python. We also learn a few new tricks to make our graphs more informative and professional. For example, the addition of a best-fit line, the addition of a legend and the addition of error bars really helped us improve our graphs and improve our knowledge of the language.
+In total, two important graphs were created, using python in Google Colab.
 
-## MRI safety
-This week, we learned about the importance of metal-free objects in an MRI room. Because of the powerful magnetic force encapsuling the MRI room, everybody entering the room needs to be scanned through in order to ensure that no ferromagnetic objects will be in contact with the machine. The heavier the object, the fastest it will rotate in the machine and the stronger the attraction will be. 
-[The videos we watched](https://youtu.be/LS2hwW6Ihj4) goes in full detail on the safety mesures and precautious we need to follow. 
+For the first graph, we selected the babies scanned between 40 weeks inclusively and 41 weeks. This represents 90 babies selected. The important data extracted to complete figure 1 are the babies' weight, the babies' scan head circumference and the babies' age. Those babies are either pretermed or normally born. With the graphs, we added error bars in order to show the incertitude of our data.
 
-The folllowing day, we were able to assist a MRI scan of a premature baby.
+![Full graph](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/985051a0-d3f0-4bc1-b907-69c31fd55295)
 
-	
+The second graph correlates the birth age with the birth weight of all 489 babies. Clearly, we can see a colleration between the two variables. Hence, a regression line can be plotted in order to better vizualize the realtionship between the x and y variables.
 
-> Written with [StackEdit](https://stackedit.io/).
+![birth weight scatter](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/bf2739d4-372e-4ef9-9934-54bbab5404ce)
+
+
+### Experiment 1: use k-means to classify the data
+(explain how you did that: how many data samples? what you should do to use the k-means code? )
+
+K-mean is an unsupervised machine that classifies the data in clusters. Its automaticity and simplycity makes it a good choice for us to classify our data. For our 489 babies, we decided to regroup them in 3 different clusters. Before using the k-mean code, first, we had to clean our data in order to drop the NA values. Then, we had to create coordinates in the type (x, y) with the datas we are interested in. For this example, we were interested in the scan head circumference and the scan age of the babies. Afterwards, we needed to create an array of the data and finally, we needed to choose the number of clusters we wanted to use.
+
+### Results 
+(show two figures of classification results; Are these results you expected? Why? Try to explain...)
+
+![scan head circumference data](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/0541f7a1-22c3-466d-ba5a-53752391876c)
+
+![First Model Training](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/1098fb95-3ad1-4b7a-b655-ff6d6b69a47a)
+
+The discrepencies between those two graphs were not what we expected. The first graph was manually done based on the predefined categorizes. For the second graph, our k-means machine calculates the distances between all points on the graph and categorizes them based on their closeness. So, difference between the two figures is logical.
+
+## Reproducibility
+
+### Dependencies
+(list the tool and library you used)
+* Matplotlib.pyplot
+* Numpy
+* KMeans
+* Overleaf
+* Markdown
+* GitHub
+* Google colab
