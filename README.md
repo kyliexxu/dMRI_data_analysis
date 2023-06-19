@@ -39,10 +39,11 @@ The discrepencies between those two graphs were not what we expected. The first 
 
 ### Dependencies
 (list the tool and library you used)
-* Matplotlib.pyplot
+* Pandas
+* Matplotlib
 * Numpy
 * KMeans
 * Overleaf
 * Markdown
 * GitHub
-* Google colab
+* Google Colab
