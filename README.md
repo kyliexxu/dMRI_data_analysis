@@ -49,19 +49,17 @@ The discrepencies between those two graphs were not what we expected. The first 
 * Google Colab
 
 ### RGB image
-![119 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/b21f5d46-84b2-446a-9348-299657b118ec)
+![119 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/b21f5d46-84b2-446a-9348-299657b118ec)    
 RGB figure of baby 119 in our dataset
 
-![409 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/79bdd59f-e140-4080-8f07-4cbb07382055)
+![409 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/79bdd59f-e140-4080-8f07-4cbb07382055)    
 RGB figure of baby 409 in our dataset
 
-![467 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/32948590-c996-482b-a9f0-1febf9e11300)
+![467 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/32948590-c996-482b-a9f0-1febf9e11300)    
 RGB figure of baby 467 in our dataset
 
-
-![586 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/015d2e3d-1385-47f4-a67b-34ed019b9987)
+![586 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/015d2e3d-1385-47f4-a67b-34ed019b9987)    
 RGB figure of baby 586 in our dataset
 
-![720 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/fb3e8477-cd6a-4e0a-a553-0d0c3b505438)
+![720 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/fb3e8477-cd6a-4e0a-a553-0d0c3b505438)    
 RGB figure of baby 720 in our dataset
-
