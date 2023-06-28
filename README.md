@@ -49,10 +49,9 @@ The discrepencies between those two graphs were not what we expected. The first 
 * Google Colab
 
 ### RGB image
-![119 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/f2a84067-abb0-445b-b494-c7cdc03883ea)    
+![119 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/f2a84067-abb0-445b-b494-c7cdc03883ea)  ![409 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/853cb6c6-dc72-4316-aa03-8254c1355cd2)       
 RGB figure of baby 119 in our dataset
 
-![409 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/853cb6c6-dc72-4316-aa03-8254c1355cd2)     
 RGB figure of baby 409 in our dataset
 
 ![467 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/b45dc16e-794a-4a77-906d-8ff00bbc67a4)    
