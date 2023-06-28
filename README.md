@@ -56,4 +56,4 @@ The discrepencies between those two graphs were not what we expected. The first 
 &nbsp; RGB figure of baby 467 in our dataset &nbsp;&nbsp;&nbsp; RGB figure of baby 586 in our dataset
 
 ![720 RGB picture](https://github.com/kyliexxu/dMRI_data_analysis/assets/135480679/a04d84e6-9617-4ac7-a21d-08177bf1558b)    
-RGB figure of baby 720 in our dataset
+&nbsp;&nbsp;&nbsp; RGB figure of baby 720 in our dataset
