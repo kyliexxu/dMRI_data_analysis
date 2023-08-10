@@ -1,0 +1,398 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{indentfirst}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{subcaption}
+\usepackage[final]{neurips_2019}
+
+% to avoid loading the natbib package, add option nonatbib:
+%     \usepackage[nonatbib]{neurips_2019}
+
+\usepackage{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+          % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+
+\usepackage[dvipsnames]{xcolor}
+% \usepackage[normalem]{ulem}
+% \newif{\ifhidecomments}
+
+\usepackage[colorlinks=true,bookmarks=false,citecolor=blue,urlcolor=blue]{hyperref}
+
+\usepackage{url}  
+\title{Neonatal Brain Tissue Development Evaluation using dMRI\\
+\small{(An Introduction to Python-based Medical Image Analysis)}}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+\author{%
+  Sara Hernandez$^{1,2,3}$,
+  Kylie Xu$^{1,2,3}$\\
+  \vspace{2pt}\\
+  $^1$CHU Sainte-Justine Research Centre, University of Montreal, Montreal, QC, CA\\
+  $^2$Dawson College, Montreal, QC, CA\\
+  $^3$NeuroPoly Lab, Polytechnique Montreal, Montreal, QC, CA\\
+  \vspace{2pt}\\
+  \texttt{kylie.xu@dawsoncollege.qc.ca} \\
+  \texttt{shernand@uwaterloo.ca} \\
+  % examples of more authors
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \AND
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+}
+
+\usepackage{paralist}
+\setlength{\parindent}{2em}
+% \usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{paralist}
+\usepackage[linesnumbered]{algorithm2e}
+\SetKwComment{Comment}{\# }{ }
+\RestyleAlgo{ruled}
+
+\usepackage{siunitx}
+% \usepackage[math-style=ISO]{unicode-math}
+\usepackage{physics}
+\usepackage{bm}
+\newcommand{\myvector}[1]{\vb*{#1}}
+\newcommand{\mymatrix}[1]{\mathit{#1}}
+\newcommand{\mytensor}[1]{\vb*{#1}}
+\usepackage{minitoc}
+\usepackage{spverbatim}
+\usepackage{spverbatim}
+\usepackage{subcaption}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\contentsname}{Contents}
+\renewcommand\bibname{References}
+
+
+
+
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+\section{Report: Summer Internship}
+\subsection{Summary}\label{sec: summary}
+The project, \textit{Neonatal Brain Tissue Development Evaluation using dMRI} (An Introduction to Python-based Medical Image Analysis), permitted us to explore the principles behind medical research and exposed us to Python coding and medical image analysis. 
+This internship lasts $10$ weeks and it relies on Python coding and diffusion MRI techniques.
+It consists of two parts: 
+\begin{inparaenum}[1)]
+    \item Baby age prediction;
+    \item Evaluation of baby brain development using dMRI.
+\end{inparaenum}
+The former project uses existing machine learning libraries (\href{https://scikit-learn.org/stable/}{sklearn}) to train a model to predict term VS preterm babies; It is to help us be familiar with the data we will use and learn Python skills from drawing a line, display a table, image and training a machine learning model (k-means).
+The latter part demystifies the differences in brain development of white matter and gray matter from $32$ week age (preterm, gestational age) to $42$ week age (term). At the end of the internship, we were familiar with Python coding as well as the related tools or libraries (\textit{numpy}, \textit{pandas}, \textit{nibabel}...); we also successfully found the development curves of neonatal brain tissue development. 
+
+In the report, we followed the order of our internship. Firstly, we summarized this intership in section \ref{sec: summary}; Then, in section \ref{sec: introduction}, we introduced the neonatal brain development, diffusion MRI techniques used in neonatal brain development, as well as the coding language (Python) used in this project; Following this, we reports our warm-up project (section \ref{sec: baby age prediction}) and brain tissue development evaluation project (section \ref{sec: brain tissue devep}); Since this project is mainly about MRI and diffusion MRI, we scanned several infants and did the diffusion MRI reconstruction and we put these images in section \ref{sec: MRI scans}. Finally, we discussed this internship, its limitations and future work.
+
+
+\subsection{Introduction}\label{sec: introduction}
+Medical engineering is a vast field that has many different applications. From developing a novel AI tool to ameliorating imaging techniques, this project aims at exploring different facets of medical engineering through two projects. As everything in our project has already been done multiple times by professional researches, the discussion of our result will be based upon current scientific knowledge from Google Scholar and PudMed articles. 
+
+The general goal of our internship was to learn medical analysis (neonatal brain tissue development) using dMRI. To acchive this goal, we will 
+\begin{itemize}
+    \item Firstly, learn Python language;
+    \item use Python to process and analysis the data;
+\end{itemize}
+\subsection{Baby age prediction}\label{sec: baby age prediction}
+To practice Python and be familiar with the data, we first do the warm-up project.
+\subsubsection{Introduction} 
+Preterm babies and term babies display different characteristics. Often, preterm babies will be lighter in weight, smaller in size and have a non-spherical head shape. As the line between preterm and term babies might be ambiguous, using AI to categorize babies as preterm or term babies would add a layer of objectivity in the healthcare service and become an essential tool used by healthcare professionals to ensure that patients are treated with proper care. However, to our knowledge, there is no available dataset and tutorials online to help college students in health science to touch the AI practical project; Not even to say, a project for the student who has no experience of coding before. 
+
+
+With Machine Learning, models can be trained in doing what it was programmed for and have better accuracy than human classification.
+
+    In this project, our general goals are
+\begin{itemize}
+    \item Practice Python skills and be familiar with the data;
+    \item know the basic concept of machine learning models and concepts related;
+\end{itemize}
+
+In more detail, we will use k-means to classify infants into several groups based on their scan age, head circumference at scanning time, and weights at birth.
+
+\subsubsection{Method} 
+The data about the infants was obtained from the dhcp database. The clusters were formed to predict infant birth age ($x$) groups using plots obtained from scan head circumference, birth weight and scan age. 
+
+The birth ages were split into both $3$ categories (case $1$) and $4$ categories (case $2$). In case $1$, the birth age groups were extremely to very preterm ($x < 32$), moderate to late preterm ($32 \le x < 37$) and term ($x \ge 37$). In case $2$, they were extremely preterm ($x < 28$), very preterm ($28 \le x < 32$), moderate to late preterm ($32 \le x \le 37$) and term ($x > 37$). 
+
+\textcolor{red}{Insert the table here}
+
+\begin{table}
+\caption{Age Groups in Case $1$}\label{tab: age group of project1}
+    \centering
+    \begin{tabular}{lccc}
+        \hline
+         & Group 1 & Group 2  & Group 3\\ 
+          & Extremely to Very Preterm & Moderate to Late Preterm & Term \\
+        \hline
+        Birth Age (weeks)& $29.41 \pm 1.98$ & $34.86 \pm 1.33$ & $39.91 \pm 1.24$\\
+        Scan Age (weeks) & $37.38\pm 4.36$ & $37.86 \pm 2.88$ & $40.95\pm 1.69$\\
+        Number &$72$ &$91$ & $325$\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}
+\caption{Age Groups in Case $2$}\label{tab: age group of project2}
+    \centering
+    \begin{tabular}{lcccc}
+        \hline
+         & Group 1 & Group 2  & Group 3 & Group 4\\ 
+          & Extremely Preterm & Very Preterm & Moderate to Late Preterm & Term \\
+        \hline
+        Birth Age (weeks)& $26.34 \pm 1.00$ & $30.21 \pm 1.25$ & $34.90 \pm 1.36$ & $39.93 \pm 1.22$\\
+        Scan Age (weeks) & $37.98\pm 5.10$ & $37.22 \pm 4.13$ & $37.89\pm 2.88$ & $40.96 \pm 1.69$\\
+        Number &$15$ &$57$ & $93$ & $323$\\
+        \hline
+    \end{tabular}
+\end{table}
+
+The clusters were formed using the KMeans package from the sklearn.cluster library. 
+\subsubsection{Results}
+The clusters formed from the birth weight with respect to scan age plot had at best an accuracy of $50\%$ with case $1$ and $52\%$ with case $2$. 
+
+\graphicspath{ {./kmeans/} }
+\begin{figure}[!h]
+\centering
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[width =\textwidth]{Images/kmeans/Scan_Age_and_Birth_Weight_in_Preterm_and_Term_Infants_3_Groups.png}
+\end{subfigure}
+% \hfill
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[width = \textwidth]{Images/kmeans/Preterm_and_Term_Infants_Clustered_with_Scan_Age_and_Birth_Weight_3_Groups.png}
+\end{subfigure}
+% \hfill
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[width = \textwidth]{Images/kmeans/Scan_Age_and_Birth_Weight_in_Preterm_and_Term_Infants.png}
+\end{subfigure}
+% \hfill
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[width =\textwidth]{Images/kmeans/Preterm_and_Term_Infants_Clustered_by_Scan_Age_and_Birth_Weight.png}
+\end{subfigure}
+\caption{Clustering Infants into Birth Age Groups with Scan Age and Birth Weight}
+\label{fig:figures}
+\end{figure}
+
+The clusters formed from the scan head circumference with respect to scan age plot had at best an accuracy of $51\%$ with case $1$ and $54\%$ with case $2$. 
+
+\graphicspath{ {./kmeans/} }
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[scale=0.75, width = \textwidth]{Images/kmeans/Scan_Age_and_Scan_Head_Circumference_in_Preterm_and_Term_Infants_3_Groups.png}
+    \label{fig:first}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[scale=0.75, width = \textwidth]{Images/kmeans/Preterm_and_Term_Infants_Clustered_with_Scan_Age_and_Scan_Head_Circumference_3_Groups (2).png}
+    \label{fig:second}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[scale=0.75, width = \textwidth]{Images/kmeans/Scan_Age_and_Scan_Head_Circumference_in_Preterm_and_Term_Infants.png}
+    \label{fig:third}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[scale=0.75, width = \textwidth]{Images/kmeans/Preterm_and_Term_Infants_Clustered_with_Scan_Age_and_Scan_Head_Circumference.png}
+    \label{fig:fourth}
+\end{subfigure}
+        
+\caption{Clustering Infants into Birth Age Groups with Scan Age and Scan Head Circumference}
+\label{fig:figures}
+\end{figure}
+
+The clusters formed from the birth weight with respect to scan head circumference plot had at best an accuracy of $58\%$ with case $1$ and $47\%$ with case $2$. 
+
+\graphicspath{ {./kmeans/} }
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[scale=0.75, width = \textwidth]{Images/kmeans/Scan_Head_Circumference_and_Birth_Weight_in_Preterm_and_Term_Infants_3_Groups.png}
+    \label{fig:first}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[scale=0.75, width = \textwidth]{Images/kmeans/Preterm_and_Term_Infants_Clustered_with_Scan_Head_Circumference_and_Birth_Weight_3_Groups (1).png}
+    \label{fig:second}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[scale=0.75, width = \textwidth]{Images/kmeans/Scan_Head_Circumference_and_Birth_Weight_in_Preterm_and_Term_Infants.png}
+    \label{fig:third}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\textwidth}
+    \includegraphics[scale=0.75, width = \textwidth]{Images/kmeans/Preterm_and_Term_Infants_Clustered_with_Scan_Head_Circumference_and_Birth_Weight.png}
+    \label{fig:fourth}
+\end{subfigure}
+        
+\caption{Clustering Infants into Birth Age Groups with Scan Head Circumference and Birth Weight}
+\label{fig:figures}
+\end{figure}
+
+\subsubsection{Discussion}
+
+From the results, it seems that Case $1$ results in the best accuracy results for the birth weight and scan head circumference graph while Case $2$ results in the best accuracy for the scan age and birth weight and for the scan age and scan head circumference graphs. This may be due to the scan age for the extremely and very premature infant groups being more strongly related to birth age than the scan age for other groups. This would make the separation of these groups yield a higher accuracy in plots including scan age and a lower yield in those without it. 
+
+It is noted that the highest accuracy for predicting birth age groups was obtained from the birth weight and scan head circumference graph which may be because the physical data obtained from the infants is a better predictor of their birth age than their scan age. 
+
+Overall, the accuracies obtained using this method were rather small. This is likely due to a variety of factors which includes a large difference in the number of infants in each age group, overlap between age groups in the plotted graphs but also the limitations of using only the k-means method. 
+
+The easiest part was plotting the graphs and obtaining the k-means clusters using the KMeans package. The hardest part was understanding how the k-means clusters were formed and what could be done to optimize these clusters and to improve the accuracy of its predictions. 
+
+\subsubsection{Conclusion}
+While the accuracies in predicting infant birth age groups are not high enough to be helpful in a clinical setting, the model created in this study is a useful stepping stone that can be improved with further research. It may also be interesting to use a different method of clustering to predict the birth age groups and to use data from the infant brain scans to categorize them. 
+
+\subsection{MRI scan and data examples}\label{sec: MRI scans}
+We scanned five babies in total.
+
+Parameters we used.
+
+\subsubsection{data examples}
+\textbf{Twin babies}
+
+
+
+
+\textbf{Human and monkey}
+
+
+\textbf{Mouse}
+
+
+\subsection{Evaluation of baby brain development using dMRI}\label{sec: brain tissue devep}
+\subsubsection{Prerequisite knowledge}
+Diffusion weighted MRI (dMRI) is a type of magnetic resonance imaging based on the measurable Brownian motion of water to create contrast in the MRI image. The diffusion of the random movement of water molecules is referred to as Brownian motion ~\cite{Mueller2015-cw}. As water naturally diffuses freely, in human tissues, the diffusivity of water seems to have a preferred direction. dMRI has long been used to understand the directional diffusivity in the human brain. DTI models are insightful models to understand how water moves along the track of white matter in humans' brains. DTI models uses the water diffusivity as a basis to illustrate the anatomy of the brain network~\cite{noauthor_2018-ws}.
+%*\footnote{https://www.news-medical.net/health/Diffusion-Tensor-Imaging-(DTI)-Explained.aspx\#:\~:text=The\%20term\%20\%27diffusion\%27\%20denotes\%20random,not\%20influenced\%20by\%20brain\%20functions}
+\newline
+\newline AD, RD, MD and FA metric were extracted from the diffusion-weighted image. 
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.23\textwidth}
+        \centering
+        \includegraphics[width=0.97\textwidth]{Images/animal brains/macaque-monkey_dwi.png}
+      \caption{DWI scan}
+    \end{subfigure}
+% \hskip 3ex
+% \hfill
+    \begin{subfigure}{0.23\textwidth}
+      \includegraphics[width=0.97\textwidth]{Images/animal brains/macaque-monkey_md_metric.png}
+      \caption{MD metric}
+    \end{subfigure}
+% \hskip 3ex
+% \hfill
+    \begin{subfigure}{0.23\textwidth}
+      \includegraphics[width=0.97\textwidth]{Images/animal brains/macaque-monkey_fa_metric.png}
+      \caption{FA metric}
+    \end{subfigure}
+% \hskip 3ex
+% \hfill
+    \begin{subfigure}{0.23\textwidth}
+      \includegraphics[width=0.97\textwidth]{Images/animal brains/macaque-monkey_rgb_metric.png}
+      \caption{RGB metric}
+    \end{subfigure}
+    \caption{Monkey DWI scan and DTI metrics}  
+    \label{fig:enter-label}
+\end{figure}
+\subsubsection{Introduction}
+Between $18$ and $39$ weeks of gestational age, infants experience significant brain volume growth due to the development of gray matter and white matter~\cite{Knickmeyer2008-yz}. When infants are born prematurely, they are unlikely to experience this stage of development the same as infants that are born to term. Due to this difference in development, it is known that infants born preterm are at higher risk for many neurological conditions~\cite{Counsell2008-nu}. With the use of MRI scans, some of these conditions can be predicted by studying white and gray matter in the brain.  Diffusion MRI(dMRI) in the brain is useful to identify regions where brain tissues may be underdeveloped. It has been shown that dMRI data in white matter is an important marker in tracking the development of neonates. The diffusivity and fractional anisotropy maps which can be extracted from dMRI data are crucial to understanding brain microstructure changes and its associated abnormalities. Once these abnormalities are identified, dMRI scans can provide insight on the likelihood of an infant to develop a neurological condition. 
+\subsubsection{Goal}
+This study aims to use DTI metrics, derived from dMRI scans, to characterize differences between infants born preterm and infants born to term to describe the diffusivity and fractional anisotropy in white matter, cortical gray matter and deep gray matter volume. 
+\subsubsection{Method}
+All infants part of the study were scanned with a 3T MRI scanner at the Montreal CHU Sainte-Justine Hospital. In this study, a data from a total of $45$ infants was used. They were placed into groups based on the gestational week that they were scanned. There were nine groups in total, ranging from infants scanned at $34$ weeks $(34 \le x < 35)$ to infants scanned at $42$ weeks $(42 \le x < 43)$. Diffusion MRI scans were obtained from each infant with $300$ b-values and $3$ b-vectors for each one. The diffusivity and fractional anisotropy maps were then extracted for each infant using DIPY. Different brain tissues were isolated from the atlas created by following the dhcp diffusion segmentation pipeline. The average signal intensities of the infants were compared in three different regions of interest: cortical gray matter, white matter and deep gray matter (see fig. 4).
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.20]{Images/ROIs.png}
+    \caption{The region of interest for our study are the cortical gray matter (green), the white matter (purple-blue) and the deep gray matter (gray)}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{table}
+\tiny
+\caption{Age Groups}\label{tab: age group of proj}
+    \centering
+    \begin{tabular}{lccccccccc}
+        \hline
+         & Group 1 & Group 2  & Group 3 & Group 4 & Group 5 & Group 6 & Group 7 & Group 8 & Group 9\\  & 34 weeks & 35 weeks & 36 weeks & 37 weeks & 38 weeks & 39 weeks & 40 weeks & 41 weeks & 42 weeks \\
+        \hline
+        Birth Age (weeks)& $33.09 \pm 1.24$ & $33.57 \pm 2.67$ & $34.66 \pm 2.72$ & $36.94 \pm 0.37$ & $37.00 \pm 2.44$ & $37.23 \pm 3.97$ & $39.89 \pm 0.41$ & $38.46 \pm 5.47$ & $38.09 \pm 5.39$\\
+        Scan Age (weeks) & $34.49\pm 0.45$ & $35.57 \pm 0.27$ & $36.69\pm 0.12$ & $37.54 \pm 0.27$ & $38.43 \pm 0.27$ & $39.34 \pm 0.16$ & $40.43 \pm 0.14$ & $41.37 \pm 0.40$ & $42.23 \pm 0.36$ \\
+        Number &$5$ &$5$ & $5$ & $5$ & $5$ & $5$ & $5$ & $5$ & $5$\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Results}
+Figure 1 shows the evolution of the mean values of different DTI metrics, namely MD, AD, RD and FA in each ROI from 34 weeks to 42 weeks of gestational age. The cortical gray matter, white matter and deep gray matter were our regions of interests. In radial diffusivity (RD), axial diffusivity (AD) and mean diffusivity (MD) metrics, the average diffusivity value and gestational age seem to have a negative correlation. In the fractional anisotropy (FA) metric, the mean value of FA seems to decrease in the cortical gray matter as age increases whereas the values for the white matter and deep gray matter seem to increase over time. We extracted regression lines from all curves and found the Pearson correlation coefficient (r) for each regression line. The p value for all regression lines were smaller than $0.05$ $(p < 0.05)$.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale = 0.45]{Images/Graph of the new data set.png}
+    \caption{Diffusivity and fractional anisotropy of brain tissues for babies scanned between $34$-week to $40$-week of gestational age (weeks)}
+    \label{fig:enter-label}
+\end{figure}
+\subsubsection{Discussion}
+The anatomy of infants' brain seems to undergo important and significant changes in white matter, cortical gray matter and deep gray matter from 34 weeks to 42 weeks of age. In AD, RD and MD metrics, all three ROIs' signal intensity seem to decrease as babies get older. Since dMRI uses the diffusivity of water molecules to visualize the brain's structure, this drop seen in the different metrics averages could be understood as a decrease in water content in the brain. On top of that, the increase of the FA values in white matter and deep gray matter over time suggest a preferred direction for the diffusivity of water molecules. With significant changes in these four metrics, the results seem to suggest some important development happening in infants' brain between 34 weeks and 42 weeks. This finding correlated with previous studies that have been done suggesting an changes in the gray and white matter volumes during the first year of life. From the Pearson correlation coefficient, deep gray matter seems to undergo the biggest changes followed by white matter and finally cortical gray matter. 
+\newline 
+
+\subsubsection{Conclusion}
+The results in this study will be useful in identifying developmental differences in white matter, cortical gray matter and in deep gray matter between 34-week infants to 42-week infants. Identifying these differences using diffusion MRI scans will be useful in a clinical setting as it will allow infants to receive the treatment they require based on their brain tissue development. The data acquired in this study may also be used to predict the neurological conditions of these preterm infants. 
+
+When comparing the results obtained in this study to those found in a similar study, decreases in signal intensity in the AD, RD and MD metrics in gray matter over time occurred in both. In the FA metric, the other paper found that a decrease in signal intensity in whole gray matter occurred from $25$ to $38$ weeks and that an increase occurred from $38$ to $50$ weeks. In the results of this study, an increase in signal intensity of the FA metric in deep gray matter is observed from $34$ to $42$ weeks while a decrease is observed in cortical gray matter from $34$ to $43$ weeks. These differences may be explained by the decision to study deep gray matter and cortical gray matter together or separately. Additionally, the differences in how the statistical analysis was performed may explain the more specific results obtained from the other study. 
+
+
+
+\subsection{\textcolor{red}{Limitation and future work}}
+Noise obtained during the scans may have influenced the average signal intensities obtained because denoising was not done for this study. Furthermore, the plots do not form perfect linear lines because of small fluctuations happening between groups. These fluctuations can be explained by the fact that different set of babies were scanned for each group, allowing individual variability to affect the results. Furthermore, in the whole data set of 45 babies, some babies were born premature and others to term, so the differences in their brain development could have had an impact in our results. 
+\subsection{Acknowledgement}
+We wanted to acknowledge our mentor Erjun Zhang for helping us along the way and teaching us the basis of python coding and medical-imaging. This project would have been impossible to complete without his help. In addition, we wanted to thank our Dawson College supervisors Dr. Hélène Nadeau and Dr. Sylvia Cox for giving us giving us feedback on our project. And finally, we wanted to acknowledge Michelle Poulin, Dr. Benjamin De Leener and Dr. Lodygensky for helping us and taking care of us in the hospital during the time of our internship.
+\subsection{Supplemental material}
+All the materials and tools used in this project can be found online.
+\begin{enumerate}
+    \item The content of this report is reproducible via the dataset that can be found on Github: \href{https://github.com/zhangerjun/dMRI_data_analysis}{click here}.
+    \item  Dipy library was used in order to extract the DTI metrics AD, RD, MD, FA and RGB. The code for the reconstruction of the diffusion signal with the tensor model can be found \href{https://dipy.org/documentation/1.1.1./examples_built/reconst_dti/}{here}.
+    \item The graphs used in this report were created in a python environment and the code for the graphs can be found \href{https://github.com/zhangerjun/dMRI_data_analysis/blob/main/Graphs%20code.ipynb}{here}.
+\end{enumerate}
+ 
+
+\newpage
+\bibliographystyle{plain} % We choose the "plain" reference style
+\bibliography{ref}
+\end{document}
